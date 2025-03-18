@@ -5,7 +5,9 @@ body {
   
 
 }
-
+.w3-bar-item {
+  color: blueviolet;
+}
 h2 {
   color: black;
   text-align: center;
