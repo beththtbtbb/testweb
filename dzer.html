@@ -1,0 +1,47 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+<script>
+function maksa() {
+    let dz = document.getElementsByName('drink');
+    let selectedPrice = 0;
+
+    // Loop through the radio buttons and check which one is selected
+    for (let i = 0; i < dz.length; i++) {
+        if (dz[i].checked) {
+            selectedPrice = Number(dz[i].value);
+            break; // Stop the loop once a selection is found
+        }
+    }
+
+    // Display the selected price next to the button if a drink is selected
+    if (selectedPrice > 0) {
+        document.getElementById("poga").value = "Jāmaksā: " + selectedPrice + " EUR";
+    } else {
+        document.getElementById("poga").value = "Izvēlies dzērienu";
+    }
+}
+</script>
+
+<p>Izvēlies dzērienu:</p>
+<form>
+    <input type="radio" id="kafija" name="drink" value="3.60">
+    <label for="kafija">kafija</label><br>
+    
+    <input type="radio" id="sula" name="drink" value="2.50">
+    <label for="sula">sula</label><br>
+    
+    <input type="radio" id="kakao" name="drink" value="3.20">
+    <label for="kakao">kakao</label><br><br>
+    
+    <input type="button" id="poga" value="Jāmaksā" onclick="maksa()">
+</form> 
+
+</body>
+</html>
+
+

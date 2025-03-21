@@ -23,6 +23,7 @@ body {font-family: "Lato", sans-serif}
     <a href="index.html#band" class="w3-bar-item w3-button w3-padding-large w3-hide-small">ATTĒLU APSTRĀDE</a>
     <a href="index.html#izklājlapas" class="w3-bar-item w3-button w3-padding-large w3-hide-small">IZKLĀJLAPAS</a>
     <a href="index.html#teksta apstrāde" class="w3-bar-item w3-button w3-padding-large w3-hide-small">TEKSTA APSTRĀDE</a>
+    <a href="index.html#teksta apstrāde" class="w3-bar-item w3-button w3-padding-large w3-hide-small">3D MODELĒŠANA</a>
     <a href="index.html#video" class="w3-bar-item w3-button w3-padding-large w3-hide-small">VIDEO</a>
     <a href="javascript:void(0)" class="w3-padding-large w3-hover-red w3-hide-small w3-right"><i class="fa fa-search"></i></a>
   </div>
@@ -30,11 +31,11 @@ body {font-family: "Lato", sans-serif}
 
 <!-- Navbar on small screens -->
 <div id="navDemo" class="w3-bar-block w3-black w3-hide w3-hide-large w3-hide-medium w3-top" style="margin-top:46px">
-  <a href="#attēluapstrāde" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">Attēlu apstrāde</a>
-  <a href="#izklājlapas" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">Izklājlapas</a>
-  <a href="#tekstaapstrāde" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">Teksta apstrāde</a>
-  <a href="#video" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">Video</a>
-  <a href="#video" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">Individuala temA</a>
+  <a href="index.html#attēluapstrāde" class="w3-bar-item w3-button w3-padding-large" onclick="toggleMenu()">Attēlu apstrāde</a>
+  <a href="index.html#izklājlapas" class="w3-bar-item w3-button w3-padding-large" onclick="toggleMenu()">Izklājlapas</a>
+  <a href="index.html#3D" class="w3-bar-item w3-button w3-padding-large" onclick="toggleMenu()">3D modelēšana </a>
+  <a href="index.html#tekstaapstrāde" class="w3-bar-item w3-button w3-padding-large" onclick="toggleMenu()">Teksta apstrāde</a>
+  <a href="index.html#video" class="w3-bar-item w3-button w3-padding-large" onclick="toggleMenu()">Video</a>
 </div>
 
 <!-- Aizsardzība pret ļaunatūru Section -->
@@ -75,6 +76,14 @@ body {font-family: "Lato", sans-serif}
 
 <script>
 // Automatic Slideshow - change image every 4 seconds
+function toggleMenu() {
+  var x = document.getElementById("navDemo");
+  if (x.className.indexOf("w3-show") == -1) {
+    x.className += " w3-show"; // Show the menu
+  } else {
+    x.className = x.className.replace(" w3-show", ""); // Hide the menu
+  }
+}
 var myIndex = 0;
 carousel();
 
