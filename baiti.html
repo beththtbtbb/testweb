@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/html.html to edit this template
+-->
+<html lange="lv">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Interneta ātruma aprēķins</title>
+    <style>
+        body{
+            font-family: Arial, sans serif;
+            border: 2px solid blue;
+            padding: 10px;
+            width: 400px;
+            
+        }
+        input[type="text"], input[type="number"]{
+            width: 100px;
+        }
+        </style>
+    </head>
+    <body>
+        <form id="calcForm">
+            <p>Aprekinat cik daudz info var lejupieladet</p>
+            <input type="number" id="seconds" oninput="calculate()"> sekundes, ja interneta atrtums ir 25Mbps.
+            <p>Atbilde</p>
+            <input type="text" id="result" readonly>
+            <input type="radio" name="unit" value="KiB" onclick="calculate()"> KiB
+            <input type="radio" name="unit" value="KB" onclick="calculate()"> KB
+         <script>
+             function calculate() {
+                 let seconds = document.getElementById("seconds").value;
+                 let resultField = document.getElementById("result");
+                 let unit = document.querySelector('input[name="unit"]:checked');
+                  if(seconds ==="" || unit === null) {
+                      resultField.value = "";
+                      return;
+                  }
+                  let speedMbps = 25; // interneta atrums mbpsd
+                  let speedBps = speedMbps * 1000000/8;
+                  let totalBytes = speedBps * seconds; 
+                  
+                  if(unit.value === "KiB") {
+                      resultField.value = (totalBytes/ 1024).toFixed(4);
+                      
+                  } else {
+                      resultField.value = Math.round(totalBytes/ 1000);
+                  }
+             }
+            
+        </html>
